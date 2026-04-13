@@ -411,7 +411,8 @@ header a {
 }
 
 /* ── Hero cover — inset with rounded corners + gap below nav ──────────── */
-main .wp-block-cover.alignfull:first-of-type {
+/* Target any cover that is a direct child of .entry-content (hero sections) */
+.entry-content > .wp-block-cover.alignfull {
   margin-top: 1.5rem !important;
   margin-left: 1.25rem !important;
   margin-right: 1.25rem !important;
@@ -421,8 +422,9 @@ main .wp-block-cover.alignfull:first-of-type {
   overflow: hidden !important;
 }
 
-main .wp-block-cover.alignfull:first-of-type .wp-block-cover__video-background,
-main .wp-block-cover.alignfull:first-of-type .wp-block-cover__background {
+.entry-content > .wp-block-cover.alignfull .wp-block-cover__video-background,
+.entry-content > .wp-block-cover.alignfull .wp-block-cover__background,
+.entry-content > .wp-block-cover.alignfull img {
   border-radius: var(--mr-radius) !important;
 }
 
@@ -482,10 +484,12 @@ img {
   overflow: hidden !important;
 }
 
-/* Full-width covers default to no radius — hero override is above */
-.wp-block-cover.alignfull,
+/* Only the nav menu bar stays full-bleed with no radius */
 .menu-bar.wp-block-cover {
   border-radius: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .wp-block-group.has-background:not(.alignfull):not(.menu-overlay) {
