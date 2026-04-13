@@ -1,0 +1,702 @@
+/* ==========================================================================
+   MAKE ROOM LEADERS — The Life Church Inspired Redesign
+   Light, professional, community-focused
+   Accent: Deep Blue #0693e3
+   Fonts: Poppins (display) + Inter (body)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --mr-radius:          12px;
+  --mr-radius-sm:       8px;
+  --mr-radius-pill:     9999px;
+
+  --mr-bg:              #ffffff;
+  --mr-surface:         #f4f5f7;
+  --mr-surface-up:      #eef0f3;
+  --mr-border:          #e5e7eb;
+  --mr-border-light:    #d1d5db;
+
+  --mr-text:            #1a1a1a;
+  --mr-text-muted:      #6b7280;
+  --mr-text-light:      #9ca3af;
+
+  --mr-accent:          #0693e3;
+  --mr-accent-hover:    #0577c4;
+  --mr-accent-glow:     rgba(6, 147, 227, 0.12);
+  --mr-accent-light:    #e8f4fd;
+
+  --mr-font-display:    'Poppins', sans-serif;
+  --mr-font-body:       'Inter', sans-serif;
+
+  /* Override WordPress preset color tokens */
+  --wp--preset--color--base:      #ffffff;
+  --wp--preset--color--contrast:  #1a1a1a;
+  --wp--preset--color--accent-1:  #0693e3;
+  --wp--preset--color--accent-2:  #f4f5f7;
+  --wp--preset--color--accent-3:  #eef0f3;
+  --wp--preset--color--accent-4:  #6b7280;
+  --wp--preset--color--accent-5:  #f9fafb;
+  --wp--preset--color--accent-6:  rgba(6, 147, 227, 0.06);
+  --wp--preset--color--white:     #ffffff;
+  --wp--preset--color--black:     #1a1a1a;
+
+  /* Override font family tokens */
+  --wp--preset--font-family--manrope:      'Inter', sans-serif;
+  --wp--preset--font-family--artegra-sans: 'Poppins', sans-serif;
+  --wp--preset--font-family--bebas-neue:   'Poppins', sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+html,
+body {
+  background-color: var(--mr-bg) !important;
+  color: var(--mr-text) !important;
+}
+
+* {
+  font-family: var(--mr-font-body) !important;
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+h1, h2, h3, h4,
+.wp-block-heading {
+  font-family: var(--mr-font-display) !important;
+  color: var(--mr-text) !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.15 !important;
+}
+
+h5, h6 {
+  font-family: var(--mr-font-body) !important;
+  color: var(--mr-text-muted) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-size: 0.7rem !important;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw,  4rem) !important; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 3rem) !important; }
+h3 { font-size: clamp(1.2rem, 2.2vw, 2rem) !important; }
+h4 { font-size: clamp(1rem, 1.6vw, 1.4rem) !important; }
+
+p, li, span, label, td, th {
+  font-family: var(--mr-font-body) !important;
+  color: var(--mr-text);
+  line-height: 1.7;
+}
+
+a:where(:not(.wp-element-button)) {
+  color: var(--mr-text) !important;
+  text-decoration: none !important;
+}
+
+a:where(:not(.wp-element-button)):hover {
+  color: var(--mr-accent) !important;
+}
+
+/* ── Background color utility overrides ────────────────────────────────── */
+.has-base-background-color       { background-color: var(--mr-bg)        !important; }
+.has-accent-5-background-color   { background-color: var(--mr-surface)    !important; }
+.has-accent-2-background-color   { background-color: var(--mr-surface)    !important; }
+.has-accent-3-background-color   { background-color: var(--mr-surface-up) !important; }
+.has-white-background-color      { background-color: #ffffff              !important; }
+.has-black-background-color      { background-color: var(--mr-text)       !important; }
+
+/* ── Text color utility overrides ──────────────────────────────────────── */
+.has-contrast-color   { color: var(--mr-text)       !important; }
+.has-white-color      { color: #ffffff              !important; }
+.has-accent-4-color   { color: var(--mr-text-muted) !important; }
+.has-accent-3-color   { color: var(--mr-text)       !important; }
+.has-base-color       { color: var(--mr-text-muted) !important; }
+
+/* ── Navigation ────────────────────────────────────────────────────────── */
+.menu-bar,
+.wp-block-template-part header,
+header .wp-block-group {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.wp-block-navigation a,
+.wp-block-navigation__container a,
+.wp-block-navigation-item a,
+header a {
+  color: var(--mr-text) !important;
+  font-family: var(--mr-font-body) !important;
+  font-weight: 500 !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+}
+
+.wp-block-navigation a:hover,
+.wp-block-navigation__container a:hover {
+  color: var(--mr-accent) !important;
+  text-decoration: none !important;
+}
+
+/* Nav icon/hamburger */
+.wp-block-navigation i,
+.header-icon {
+  color: var(--mr-text) !important;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+:root :where(.wp-element-button, .wp-block-button__link),
+.wp-element-button,
+.wp-block-button__link {
+  background-color: var(--mr-accent) !important;
+  color: #ffffff !important;
+  font-family: var(--mr-font-body) !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  border-radius: var(--mr-radius-pill) !important;
+  padding: 0.8rem 2rem !important;
+  border: none !important;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease !important;
+  box-shadow: 0 2px 12px rgba(6, 147, 227, 0.3) !important;
+}
+
+:root :where(.wp-element-button:hover, .wp-block-button__link:hover),
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+  background-color: var(--mr-accent-hover) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(6, 147, 227, 0.4) !important;
+}
+
+/* Outline button variant */
+.is-style-outline .wp-block-button__link,
+.wp-block-button.is-style-outline .wp-block-button__link {
+  background-color: transparent !important;
+  color: var(--mr-accent) !important;
+  border: 2px solid var(--mr-accent) !important;
+  box-shadow: none !important;
+}
+
+.is-style-outline .wp-block-button__link:hover,
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background-color: var(--mr-accent) !important;
+  color: #ffffff !important;
+  border-color: var(--mr-accent) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Cards — Event listings (.coming-up-featured) ──────────────────────── */
+.coming-up-featured li {
+  background: #ffffff !important;
+  border: 1px solid var(--mr-border) !important;
+  border-radius: var(--mr-radius) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.coming-up-featured li:hover {
+  border-color: var(--mr-accent) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 32px var(--mr-accent-glow) !important;
+}
+
+.coming-up-featured h2 {
+  color: var(--mr-accent) !important;
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+}
+
+.coming-up-featured h3 { color: var(--mr-text) !important; }
+.coming-up-featured h4 { color: var(--mr-text-muted) !important; }
+.coming-up-featured p  { color: var(--mr-text-muted) !important; }
+.coming-up-featured li a { color: var(--mr-text) !important; }
+
+/* ── Coming-up list (event schedule) ──────────────────────────────────── */
+.coming-up-header li {
+  border-bottom-color: var(--mr-border) !important;
+}
+
+.coming-up-header a:hover {
+  background-color: var(--mr-accent-light) !important;
+  outline: none !important;
+}
+
+.coming-up-details h2 { color: var(--mr-text) !important; }
+.coming-up-details pre { color: var(--mr-text-muted) !important; }
+
+/* ── Homepage event cards ───────────────────────────────────────────────── */
+.coming-up-homepage h4 { color: var(--mr-text-muted) !important; }
+.coming-up-homepage h5 { color: var(--mr-text) !important; }
+.coming-up-homepage pre { color: var(--mr-text-muted) !important; }
+
+.home-event-button {
+  background: transparent !important;
+  border: 2px solid var(--mr-accent) !important;
+  color: var(--mr-accent) !important;
+  border-radius: var(--mr-radius-pill) !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.home-event-button:hover {
+  background-color: var(--mr-accent) !important;
+  color: #ffffff !important;
+  border-color: var(--mr-accent) !important;
+}
+
+/* ── Accent separator ──────────────────────────────────────────────────── */
+.small-separator {
+  background-color: var(--mr-accent) !important;
+  height: 3px !important;
+  width: 48px !important;
+}
+
+/* ── Event cards (Make Room Events section — photo cards) ──────────────── */
+.hover-border {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 420px !important;
+  border: none !important;
+  border-radius: var(--mr-radius) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+.hover-border:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Gradient overlay — lighter bottom fade for the light theme */
+.hover-border::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.45) 45%,
+    rgba(0, 0, 0, 0.1) 100%
+  ) !important;
+  z-index: 1 !important;
+  transition: background 0.35s ease !important;
+}
+
+.hover-border:hover::before {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.15) 100%
+  ) !important;
+}
+
+/* The <a> fills the card */
+.hover-border > a {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: 28px !important;
+  text-decoration: none !important;
+}
+
+.hover-border .wp-block-group {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+.hover-border figure {
+  display: none !important;
+}
+
+.hover-border h3 {
+  font-family: var(--mr-font-display) !important;
+  font-size: clamp(1.4rem, 2vw, 1.9rem) !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.15 !important;
+  text-transform: none !important;
+  letter-spacing: -0.01em !important;
+}
+
+.hover-border p:not(:last-child) {
+  display: none !important;
+}
+
+/* "Learn More" CTA */
+.hover-border p:last-child {
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  background-color: var(--mr-accent) !important;
+  display: inline-block !important;
+  padding: 0.4rem 1.1rem !important;
+  border-radius: var(--mr-radius-pill) !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  margin: 0 !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.hover-border:hover p:last-child {
+  background-color: var(--mr-accent-hover) !important;
+}
+
+.coming-up-featured-container {
+  background-color: var(--mr-surface) !important;
+}
+
+/* ── Chevron circle ────────────────────────────────────────────────────── */
+.chevron-circle {
+  background-color: var(--mr-accent) !important;
+  color: #ffffff !important;
+}
+
+/* ── Icon accent colors ────────────────────────────────────────────────── */
+.whiteboard-icon-background,
+.international-icon-background {
+  color: var(--mr-accent) !important;
+}
+
+.whiteboard-bg-color,
+.international-bg-color {
+  background-color: var(--mr-accent) !important;
+}
+
+/* ── WP block group and cover containers ───────────────────────────────── */
+.wp-block-group {
+  color: var(--mr-text);
+}
+
+.wp-block-cover,
+.wp-block-cover__inner-container {
+  color: #ffffff !important;
+}
+
+/* Images — natural rendering */
+.wp-block-image img,
+.wp-block-cover img {
+  filter: none;
+}
+
+/* ── Logo ──────────────────────────────────────────────────────────────── */
+.wp-block-site-logo img {
+  filter: none !important;
+}
+
+/* ── Hero section ──────────────────────────────────────────────────────── */
+.wp-block-cover.alignfull .wp-block-cover__inner-container h1,
+.wp-block-cover.alignfull .wp-block-cover__inner-container h2 {
+  color: #ffffff !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+footer,
+.wp-block-template-part footer {
+  background-color: #1a1a1a !important;
+  border-top: none !important;
+}
+
+footer a,
+footer p,
+footer span,
+footer li {
+  color: #9ca3af !important;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}
+
+footer h1, footer h2, footer h3, footer h4 {
+  color: #ffffff !important;
+}
+
+/* ── Dropdown / mega-menu overlay ──────────────────────────────────────── */
+.menu-overlay {
+  background-color: #ffffff !important;
+  border: 1px solid var(--mr-border) !important;
+}
+
+.menu-overlay a:hover,
+.menu-overlay a:focus {
+  background-color: var(--mr-accent-light) !important;
+}
+
+/* ── Details / accordion ───────────────────────────────────────────────── */
+details {
+  border-bottom: 1px solid var(--mr-border) !important;
+}
+
+/* ── Rounded corners ───────────────────────────────────────────────────── */
+img {
+  border-radius: var(--mr-radius) !important;
+}
+
+.wp-block-image img,
+.wp-block-image figure,
+.wp-block-image {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+.wp-block-cover,
+.wp-block-cover img {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Full-width hero stays edge-to-edge */
+.wp-block-cover.alignfull,
+.menu-bar.wp-block-cover {
+  border-radius: 0 !important;
+}
+
+.wp-block-group.has-background:not(.alignfull):not(.menu-overlay) {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+.hover-border {
+  border-radius: var(--mr-radius) !important;
+}
+
+.wp-element-button,
+.wp-block-button__link {
+  border-radius: var(--mr-radius-pill) !important;
+}
+
+.menu-close-btn {
+  border-radius: var(--mr-radius-sm) !important;
+}
+
+.coming-up-featured li {
+  border-radius: var(--mr-radius) !important;
+}
+
+.hover-border-card,
+.wp-block-column.has-background:not(.menu-overlay .wp-block-column) {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+.n2-ss-slide img,
+.n2-ss-slide-background,
+[class*="n2-ss"] img {
+  border-radius: var(--mr-radius) !important;
+}
+
+.wp-block-columns img {
+  border-radius: var(--mr-radius) !important;
+}
+
+.wp-block-media-text img,
+.wp-block-media-text .wp-block-media-text__media {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+.wp-block-site-logo img {
+  border-radius: 0 !important;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: var(--mr-surface); }
+::-webkit-scrollbar-thumb        { background: var(--mr-border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--mr-text-muted); }
+
+/* ── Slide-in drawer menu ──────────────────────────────────────────────── */
+.menu-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  height: 100dvh !important;
+  width: 420px !important;
+  max-width: 100vw !important;
+  background-color: #ffffff !important;
+  border-left: 1px solid var(--mr-border) !important;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.1) !important;
+  z-index: 9999 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  transform: translateX(110%) !important;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding-top: 72px !important;
+}
+
+.menu-overlay .wp-block-columns {
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+}
+
+.menu-overlay .wp-block-column {
+  flex-basis: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding-left: var(--wp--preset--spacing--40) !important;
+  padding-right: var(--wp--preset--spacing--40) !important;
+  padding-bottom: var(--wp--preset--spacing--30) !important;
+}
+
+.menu-overlay .wp-block-column.has-accent-5-background-color {
+  background-color: transparent !important;
+}
+
+.menu-overlay.is-open {
+  transform: translateX(0) !important;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+
+.menu-backdrop.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--mr-border) !important;
+  color: var(--mr-text-muted) !important;
+  font-size: 1.1rem !important;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px !important;
+  border-radius: var(--mr-radius-sm) !important;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease !important;
+  font-family: var(--mr-font-body) !important;
+  letter-spacing: 0.05em !important;
+}
+
+.menu-close-btn:hover {
+  color: var(--mr-text) !important;
+  border-color: var(--mr-text-muted) !important;
+  background-color: var(--mr-surface) !important;
+}
+
+.menu-link {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.menu-link:hover,
+.menu-link.is-open {
+  color: var(--mr-accent) !important;
+}
+
+/* Section label headers inside the drawer */
+.menu-overlay .wp-block-column > p:first-child {
+  color: var(--mr-text-muted) !important;
+  font-family: var(--mr-font-body) !important;
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 4px !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+}
+
+/* Nav links inside the drawer */
+.menu-overlay a,
+.menu-overlay .wp-block-navigation-item__content,
+.menu-overlay .wp-block-navigation__container a,
+.menu-overlay .wp-block-navigation-item a {
+  font-family: var(--mr-font-body) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  color: var(--mr-text) !important;
+  padding: 10px 0 !important;
+  display: block !important;
+  transition: color 0.15s ease, padding-left 0.15s ease !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+}
+
+.menu-overlay a:hover,
+.menu-overlay .wp-block-navigation-item__content:hover,
+.menu-overlay .wp-block-navigation__container a:hover,
+.menu-overlay .wp-block-navigation-item a:hover {
+  color: var(--mr-accent) !important;
+  padding-left: 8px !important;
+  text-decoration: none !important;
+}
+
+.menu-overlay .coming-up-header li {
+  border-bottom-color: var(--mr-border) !important;
+}
+
+.menu-overlay .wp-block-column {
+  background-color: transparent !important;
+}
+
+body.menu-is-open {
+  overflow: hidden !important;
+}
+
+@media (max-width: 500px) {
+  .menu-overlay {
+    width: 100vw !important;
+  }
+}
+
+/* ── Smart Slider controls ─────────────────────────────────────────────── */
+.n2-ss-slider-1 .n2-ss-control-bullet-canvas {
+  opacity: 0.6;
+}
+
+/* ── Selection color ───────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--mr-accent);
+  color: #ffffff;
+}
+
+/* ── Spacing — reduce excessive WP block gaps ──────────────────────────── */
+:root {
+  --wp--style--block-gap: 0.8rem;
+}
+
+.wp-block-group + .wp-block-group {
+  margin-block-start: 0 !important;
+}
+
+/* ── Section backgrounds — alternate light/white pattern ───────────────── */
+.wp-block-group.alignfull:nth-of-type(even) {
+  background-color: var(--mr-surface) !important;
+}

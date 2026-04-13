@@ -1,0 +1,695 @@
+/* ==========================================================================
+   MAKE ROOM LEADERS — Design Redesign
+   Elevation-inspired: dark, bold, modern
+   Accent: Amber Gold #F59E0B
+   Fonts: Barlow Condensed (display) + Inter (body)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────────────────── */
+:root {
+  --mr-radius: 18px;
+  --mr-radius-sm: 10px;
+  --mr-bg:            #0a0a0a;
+  --mr-surface:       #111111;
+  --mr-surface-up:    #1a1a1a;
+  --mr-border:        #252525;
+  --mr-border-light:  #333333;
+  --mr-text:          #eeeeee;
+  --mr-text-muted:    #888888;
+  --mr-accent:        #F59E0B;
+  --mr-accent-hover:  #D97706;
+  --mr-accent-glow:   rgba(245, 158, 11, 0.15);
+  --mr-font-display:  'Barlow Condensed', sans-serif;
+  --mr-font-body:     'Inter', sans-serif;
+
+  /* Override WordPress preset color tokens */
+  --wp--preset--color--base:      #0a0a0a;
+  --wp--preset--color--contrast:  #eeeeee;
+  --wp--preset--color--accent-1:  #F59E0B;
+  --wp--preset--color--accent-2:  #111111;
+  --wp--preset--color--accent-3:  #1a1a1a;
+  --wp--preset--color--accent-4:  #888888;
+  --wp--preset--color--accent-5:  #0f0f0f;
+  --wp--preset--color--accent-6:  rgba(255, 255, 255, 0.04);
+  --wp--preset--color--white:     #ffffff;
+  --wp--preset--color--black:     #000000;
+
+  /* Override font family tokens */
+  --wp--preset--font-family--manrope:      'Inter', sans-serif;
+  --wp--preset--font-family--artegra-sans: 'Barlow Condensed', sans-serif;
+  --wp--preset--font-family--bebas-neue:   'Barlow Condensed', sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────────────────── */
+html,
+body {
+  background-color: var(--mr-bg) !important;
+  color: var(--mr-text) !important;
+}
+
+/* Override the wildcard font from the original stylesheet */
+* {
+  font-family: var(--mr-font-body) !important;
+}
+
+/* ── Typography ────────────────────────────────────────────────────────── */
+h1, h2, h3, h4,
+.wp-block-heading {
+  font-family: var(--mr-font-display) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.05 !important;
+}
+
+h5, h6 {
+  font-family: var(--mr-font-body) !important;
+  color: var(--mr-text-muted) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  font-size: 0.7rem !important;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw,  5rem) !important; }
+h2 { font-size: clamp(1.8rem, 4vw,  3.5rem) !important; }
+h3 { font-size: clamp(1.3rem, 2.5vw, 2.2rem) !important; }
+h4 { font-size: clamp(1.1rem, 1.8vw, 1.6rem) !important; }
+
+p, li, span, label, td, th {
+  font-family: var(--mr-font-body) !important;
+  color: var(--mr-text);
+  line-height: 1.6;
+}
+
+a:where(:not(.wp-element-button)) {
+  color: var(--mr-text) !important;
+  text-decoration: none !important;
+}
+
+a:where(:not(.wp-element-button)):hover {
+  color: var(--mr-accent) !important;
+}
+
+/* ── Background color utility overrides ────────────────────────────────── */
+.has-base-background-color       { background-color: var(--mr-bg)        !important; }
+.has-accent-5-background-color   { background-color: var(--mr-surface)    !important; }
+.has-accent-2-background-color   { background-color: var(--mr-surface)    !important; }
+.has-accent-3-background-color   { background-color: var(--mr-surface-up) !important; }
+.has-white-background-color      { background-color: var(--mr-surface-up) !important; }
+.has-black-background-color      { background-color: #000000              !important; }
+
+/* ── Text color utility overrides ──────────────────────────────────────── */
+.has-contrast-color   { color: #ffffff              !important; }
+.has-white-color      { color: #ffffff              !important; }
+.has-accent-4-color   { color: var(--mr-text-muted) !important; }
+.has-accent-3-color   { color: var(--mr-text)       !important; }
+.has-base-color       { color: var(--mr-text-muted) !important; }
+
+/* ── Navigation ────────────────────────────────────────────────────────── */
+.menu-bar,
+.wp-block-template-part header,
+header .wp-block-group {
+  background-color: rgba(10, 10, 10, 0.97) !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+}
+
+.wp-block-navigation a,
+.wp-block-navigation__container a,
+.wp-block-navigation-item a,
+header a {
+  color: #ffffff !important;
+  font-family: var(--mr-font-body) !important;
+  font-weight: 500 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+}
+
+.wp-block-navigation a:hover,
+.wp-block-navigation__container a:hover {
+  color: var(--mr-accent) !important;
+  text-decoration: none !important;
+}
+
+/* Nav icon/hamburger */
+.wp-block-navigation i,
+.header-icon {
+  color: #ffffff !important;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────── */
+:root :where(.wp-element-button, .wp-block-button__link),
+.wp-element-button,
+.wp-block-button__link {
+  background-color: var(--mr-accent) !important;
+  color: #000000 !important;
+  font-family: var(--mr-font-body) !important;
+  font-weight: 600 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  border-radius: 3px !important;
+  padding: 0.875rem 2.25rem !important;
+  border: none !important;
+  transition: background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+:root :where(.wp-element-button:hover, .wp-block-button__link:hover),
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+  background-color: var(--mr-accent-hover) !important;
+  color: #000000 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Outline button variant */
+.is-style-outline .wp-block-button__link,
+.wp-block-button.is-style-outline .wp-block-button__link {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.is-style-outline .wp-block-button__link:hover,
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  border-color: var(--mr-accent) !important;
+  color: var(--mr-accent) !important;
+  background-color: transparent !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ── Cards — Event listings (.coming-up-featured) ──────────────────────── */
+.coming-up-featured li {
+  background: var(--mr-surface) !important;
+  border: 1px solid var(--mr-border) !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.coming-up-featured li:hover {
+  border-color: var(--mr-accent) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px var(--mr-accent-glow) !important;
+}
+
+.coming-up-featured h2 {
+  color: var(--mr-accent) !important;
+  font-size: 3rem !important;
+  font-weight: 800 !important;
+}
+
+.coming-up-featured h3 { color: #ffffff !important; }
+.coming-up-featured h4 { color: var(--mr-text-muted) !important; }
+.coming-up-featured p  { color: var(--mr-text-muted) !important; }
+.coming-up-featured li a { color: var(--mr-text) !important; }
+
+/* ── Coming-up list (event schedule) ──────────────────────────────────── */
+.coming-up-header li {
+  border-bottom-color: var(--mr-border) !important;
+}
+
+.coming-up-header a:hover {
+  background-color: var(--mr-accent-glow) !important;
+  outline: none !important;
+}
+
+.coming-up-details h2 { color: #ffffff !important; }
+.coming-up-details pre { color: var(--mr-text-muted) !important; }
+
+/* ── Homepage event cards ───────────────────────────────────────────────── */
+.coming-up-homepage h4 { color: var(--mr-text-muted) !important; }
+.coming-up-homepage h5 { color: #ffffff !important; }
+.coming-up-homepage pre { color: var(--mr-text-muted) !important; }
+
+.home-event-button {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  color: #ffffff !important;
+  border-radius: 3px !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
+}
+
+.home-event-button:hover {
+  border-color: var(--mr-accent) !important;
+  color: var(--mr-accent) !important;
+}
+
+/* ── Accent separator ──────────────────────────────────────────────────── */
+.small-separator {
+  background-color: var(--mr-accent) !important;
+  height: 3px !important;
+  width: 48px !important;
+}
+
+/* ── Event cards (Make Room Events section) ────────────────────────────── */
+.hover-border {
+  position: relative !important;
+  overflow: hidden !important;
+  height: 420px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform 0.4s ease !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+}
+
+.hover-border:hover {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Dark gradient overlay */
+.hover-border::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.15) 100%
+  ) !important;
+  z-index: 1 !important;
+  transition: background 0.35s ease !important;
+}
+
+.hover-border:hover::before {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.96) 0%,
+    rgba(0, 0, 0, 0.65) 55%,
+    rgba(0, 0, 0, 0.2) 100%
+  ) !important;
+}
+
+
+/* The <a> fills the card and stacks text at the bottom */
+.hover-border > a {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding: 28px !important;
+  text-decoration: none !important;
+}
+
+/* Strip inner group padding — the <a> handles it */
+.hover-border .wp-block-group {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Hide the icon figure */
+.hover-border figure {
+  display: none !important;
+}
+
+/* Card title — consistent size across all four */
+.hover-border h3 {
+  font-family: var(--mr-font-display) !important;
+  font-size: clamp(1.5rem, 2.2vw, 2rem) !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Description text — hidden */
+.hover-border p:not(:last-child) {
+  display: none !important;
+}
+
+/* "Learn More" CTA */
+.hover-border p:last-child {
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  color: var(--mr-accent) !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+}
+
+/* Section background — keep dark */
+.coming-up-featured-container {
+  background-color: var(--mr-bg) !important;
+}
+
+/* ── Chevron circle ────────────────────────────────────────────────────── */
+.chevron-circle {
+  background-color: var(--mr-accent) !important;
+  color: #000000 !important;
+}
+
+/* ── Icon accent colors ────────────────────────────────────────────────── */
+.whiteboard-icon-background,
+.international-icon-background {
+  color: var(--mr-accent) !important;
+}
+
+.whiteboard-bg-color,
+.international-bg-color {
+  background-color: var(--mr-accent) !important;
+}
+
+/* ── WP block group and cover containers ───────────────────────────────── */
+.wp-block-group {
+  color: var(--mr-text);
+}
+
+.wp-block-cover,
+.wp-block-cover__inner-container {
+  color: #ffffff !important;
+}
+
+/* Images — very subtle darkening for cohesion */
+.wp-block-image img,
+.wp-block-cover img {
+  filter: brightness(0.88) contrast(1.05);
+}
+
+/* ── Logo ──────────────────────────────────────────────────────────────── */
+.wp-block-site-logo img {
+  filter: brightness(1) !important; /* keep logo at full brightness */
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+footer,
+.wp-block-template-part footer {
+  background-color: #000000 !important;
+  border-top: 1px solid var(--mr-border) !important;
+}
+
+footer a,
+footer p,
+footer span,
+footer li {
+  color: var(--mr-text-muted) !important;
+}
+
+footer a:hover {
+  color: #ffffff !important;
+}
+
+/* ── Dropdown / mega-menu overlay ──────────────────────────────────────── */
+.menu-overlay {
+  background-color: var(--mr-surface) !important;
+  border: 1px solid var(--mr-border) !important;
+}
+
+.menu-overlay a:hover,
+.menu-overlay a:focus {
+  background-color: var(--mr-accent-glow) !important;
+}
+
+/* ── Details / accordion ───────────────────────────────────────────────── */
+details {
+  border-bottom: 1px solid var(--mr-border) !important;
+}
+
+/* ── Rounded corners — images & frame elements ─────────────────────────── */
+
+/* All standalone images */
+img {
+  border-radius: var(--mr-radius) !important;
+}
+
+/* WordPress image blocks */
+.wp-block-image img,
+.wp-block-image figure,
+.wp-block-image {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Cover blocks (hero/banner images) */
+.wp-block-cover,
+.wp-block-cover img {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* But NOT the full-width top hero or menu bar — those should stay edge-to-edge */
+.wp-block-cover.alignfull,
+.menu-bar.wp-block-cover {
+  border-radius: 0 !important;
+}
+
+/* Group blocks that have a visible background (act as cards/panels) */
+.wp-block-group.has-background:not(.alignfull):not(.menu-overlay) {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Event cards — already 10px, harmonize to token */
+.hover-border {
+  border-radius: var(--mr-radius) !important;
+}
+
+/* Buttons */
+.wp-element-button,
+.wp-block-button__link {
+  border-radius: var(--mr-radius-sm) !important;
+}
+
+/* Inline close button */
+.menu-close-btn {
+  border-radius: var(--mr-radius-sm) !important;
+}
+
+/* Event list cards */
+.coming-up-featured li {
+  border-radius: var(--mr-radius) !important;
+}
+
+/* Hover-border section cards used elsewhere */
+.hover-border-card,
+.wp-block-column.has-background:not(.menu-overlay .wp-block-column) {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Smart Slider images */
+.n2-ss-slide img,
+.n2-ss-slide-background,
+[class*="n2-ss"] img {
+  border-radius: var(--mr-radius) !important;
+}
+
+/* Sponsor / partner logos */
+.wp-block-columns img {
+  border-radius: var(--mr-radius) !important;
+}
+
+/* Profile / person photos */
+.wp-block-media-text img,
+.wp-block-media-text .wp-block-media-text__media {
+  border-radius: var(--mr-radius) !important;
+  overflow: hidden !important;
+}
+
+/* Site logo — keep sharp */
+.wp-block-site-logo img {
+  border-radius: 0 !important;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 6px; height: 6px; }
+::-webkit-scrollbar-track        { background: var(--mr-bg); }
+::-webkit-scrollbar-thumb        { background: var(--mr-border-light); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--mr-text-muted); }
+
+/* ── Slide-in drawer menu ──────────────────────────────────────────────── */
+
+/* Drawer panel — fixed right side, off-screen by default */
+.menu-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  height: 100dvh !important;
+  width: 420px !important;
+  max-width: 100vw !important;
+  background-color: #0f0f0f !important;
+  border-left: 1px solid var(--mr-border) !important;
+  z-index: 9999 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  transform: translateX(110%) !important;
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  padding-top: 72px !important;
+}
+
+/* Stack the three WP columns vertically so each gets full drawer width */
+.menu-overlay .wp-block-columns {
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+}
+
+.menu-overlay .wp-block-column {
+  flex-basis: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding-left: var(--wp--preset--spacing--40) !important;
+  padding-right: var(--wp--preset--spacing--40) !important;
+  padding-bottom: var(--wp--preset--spacing--30) !important;
+}
+
+/* Remove the light background from the "Coming up" column */
+.menu-overlay .wp-block-column.has-accent-5-background-color {
+  background-color: transparent !important;
+}
+
+.menu-overlay.is-open {
+  transform: translateX(0) !important;
+}
+
+/* Backdrop — sits below the drawer */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+
+.menu-backdrop.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Close (×) button inside drawer */
+.menu-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--mr-border) !important;
+  color: var(--mr-text-muted) !important;
+  font-size: 1.1rem !important;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px !important;
+  border-radius: 3px !important;
+  transition: color 0.2s ease, border-color 0.2s ease !important;
+  font-family: var(--mr-font-body) !important;
+  letter-spacing: 0.05em !important;
+}
+
+.menu-close-btn:hover {
+  color: #ffffff !important;
+  border-color: var(--mr-text-muted) !important;
+}
+
+/* MENU trigger text */
+.menu-link {
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.menu-link:hover,
+.menu-link.is-open {
+  color: var(--mr-accent) !important;
+}
+
+/* Section label headers inside the drawer */
+.menu-overlay .wp-block-column > p:first-child {
+  color: var(--mr-text-muted) !important;
+  font-family: var(--mr-font-body) !important;
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 4px !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+}
+
+/* Nav links inside the drawer — override the global small-caps nav style */
+.menu-overlay a,
+.menu-overlay .wp-block-navigation-item__content,
+.menu-overlay .wp-block-navigation__container a,
+.menu-overlay .wp-block-navigation-item a {
+  font-family: var(--mr-font-body) !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  color: #dddddd !important;
+  padding: 10px 0 !important;
+  display: block !important;
+  transition: color 0.15s ease, padding-left 0.15s ease !important;
+  border-bottom: 1px solid var(--mr-border) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  /* prevent word breaking */
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  white-space: nowrap !important;
+}
+
+.menu-overlay a:hover,
+.menu-overlay .wp-block-navigation-item__content:hover,
+.menu-overlay .wp-block-navigation__container a:hover,
+.menu-overlay .wp-block-navigation-item a:hover {
+  color: var(--mr-accent) !important;
+  padding-left: 8px !important;
+  text-decoration: none !important;
+}
+
+/* Coming up section inside drawer */
+.menu-overlay .coming-up-header li {
+  border-bottom-color: var(--mr-border) !important;
+}
+
+/* Remove background from drawer columns so everything is consistent */
+.menu-overlay .wp-block-column {
+  background-color: transparent !important;
+}
+
+/* Prevent body scroll when drawer is open */
+body.menu-is-open {
+  overflow: hidden !important;
+}
+
+/* Mobile: full-width drawer */
+@media (max-width: 500px) {
+  .menu-overlay {
+    width: 100vw !important;
+  }
+}
+
+/* ── Smart Slider — ensure controls stay visible ───────────────────────── */
+.n2-ss-slider-1 .n2-ss-control-bullet-canvas {
+  opacity: 0.6;
+}
+
+/* ── Selection color ───────────────────────────────────────────────────── */
+::selection {
+  background-color: var(--mr-accent);
+  color: #000000;
+}
+
+/* ── Spacing tightening — reduce excessive WP block gaps ──────────────── */
+:root {
+  --wp--style--block-gap: 0.8rem;
+}
+
+.wp-block-group + .wp-block-group {
+  margin-block-start: 0 !important;
+}
