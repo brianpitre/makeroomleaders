@@ -108,6 +108,22 @@ a:where(:not(.wp-element-button)):hover {
 .has-accent-3-background-color   { background-color: var(--mr-surface-up)  !important; }
 .has-white-background-color      { background-color: var(--mr-surface-up)  !important; }
 .has-black-background-color      { background-color: #000000               !important; }
+.has-contrast-background-color   { background-color: var(--mr-surface-up)  !important; }
+
+/* Section styles that use --wp--preset--color--contrast as background
+   (originally dark sections; remapping to dark surfaces for dark theme) */
+[class*="is-style-section-"] {
+  background-color: var(--mr-surface) !important;
+  color: var(--mr-text) !important;
+}
+[class*="is-style-section-"] h1,
+[class*="is-style-section-"] h2,
+[class*="is-style-section-"] h3,
+[class*="is-style-section-"] h4,
+[class*="is-style-section-"] p,
+[class*="is-style-section-"] span {
+  color: var(--mr-text) !important;
+}
 
 /* ── Text color utility overrides ──────────────────────────────────────── */
 .has-contrast-color    { color: var(--mr-text)       !important; }
